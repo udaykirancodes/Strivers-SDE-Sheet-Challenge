@@ -13,13 +13,22 @@ vector<vector<long long int>> printPascal(int n){
 }
 // Given R,C return Value
 int ncr(int n, int r){
-  int res =0;
-  for(int i=0 ; i<r ; i++){
-    res = res * (n-i);
-    res = res / (r-1);
-  }
-  return res;
+    int res =0;
+    for(int i=0 ; i<r ; i++){
+      res = res * (n-i);
+      res = res / (r-1);
+    }
+    return res;
 }
 int getValue(int r,int c){
-  return ncr(r-1,c-1);
+    return ncr(r-1,c-1);
+}
+
+// Given N , return Nth Row
+vector<int>getRow(int n){
+    vector<int>ans;
+    for(int c = 1; c<=n ; c++){
+      ans.push_back(ncr(n-1,c-1));
+    }
+    return ans;
 }
